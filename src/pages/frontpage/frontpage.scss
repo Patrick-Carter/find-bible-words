@@ -1,3 +1,25 @@
+.frontContainer {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.loading {
+  color: #e3e0cf;
+  animation: loading 800ms infinite;
+}
+
+@keyframes loading {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .frontTop {
   background-color: #016798;
   display: flex;
@@ -6,13 +28,27 @@
   justify-content: flex-end;
   padding: 1rem;
   padding-bottom: 0;
+  height: 30vh;
+  animation: resize-screen 500ms ease;
 }
 
 .fullscreen {
   animation: make-fullscreen forwards 500ms ease;
 }
 
+@keyframes resize-screen {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 30vh;
+  }
+}
+
 @keyframes make-fullscreen {
+  from {
+    height: 30vh;
+  }
   to {
     height: 100vh;
   }
@@ -145,10 +181,6 @@ select {
 }
 
 @media only screen and (min-width: 767px) {
-  .frontTop {
-    height: 30vh;
-  }
-
   .verse,
   .passage {
     width: 75%;

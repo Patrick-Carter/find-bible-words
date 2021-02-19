@@ -3,6 +3,10 @@ import Carousel from "react-elastic-carousel";
 
 import "./frontpage.scss";
 
+let displaySearch;
+let displayFrom;
+let displayTo;
+
 const FrontPage = () => {
   const breakpoints = [
     { width: 1, itemsToShow: 1, itemsToScroll: 1 },
@@ -53,6 +57,9 @@ const FrontPage = () => {
     )
       .then((response) => response.json())
       .then((data) => {
+        displaySearch = search.trim();
+        displayFrom = fromTo.from;
+        displayTo = fromTo.to;
         //time for animation
         setTimeout(() => {
           setVerses(data);
@@ -67,7 +74,7 @@ const FrontPage = () => {
   return (
     <div className="frontContainer">
       <div className={fullscreen ? "frontTop fullscreen" : "frontTop"}>
-        {verses && fullscreen && (
+        {(verses && fullscreen && (
           <Carousel
             pagination={false}
             className="carousel"
@@ -82,14 +89,33 @@ const FrontPage = () => {
               );
             })}
           </Carousel>
-        )}
+        )) ||
+          (fullscreen && <h2 className="loading">LOADING</h2>)}
 
-        {(!verses || !fullscreen) ? (
+        {!verses || !fullscreen ? (
           <h1 className="frontTitle">Find Bible Words</h1>
         ) : (
           <div className="center">
-            <p className="details">{`${search} shows up ${verses.results.length} times between ${fromTo.from} and ${fromTo.to}`}</p>
-            <button className="searchButton" onClick={() => {setFullscreen(false)}}>Again</button>
+            <p className="details">{`${displaySearch || search} shows up ${
+              verses.results.length
+            } times between ${displayFrom || fromTo.from} and ${
+              displayTo || fromTo.to
+            }`}</p>
+            <button
+              style={{
+                width: "35%",
+                marginLeft: "auto",
+                marginRight: "auto",
+                marginBottom: "1rem",
+              }}
+              className="searchButton"
+              onClick={() => {
+                setFullscreen(false);
+                setVerses(false);
+              }}
+            >
+              Again
+            </button>
           </div>
         )}
       </div>
