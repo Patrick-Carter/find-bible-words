@@ -102,12 +102,11 @@
     width: 100%;
   }
 
-  input:focus, select:focus {
+  input:focus,
+  select:focus {
     background-color: #c5bd8f;
   }
 }
-
-
 
 .searchLane {
   display: flex;
