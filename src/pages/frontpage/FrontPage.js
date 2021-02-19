@@ -114,7 +114,7 @@ const FrontPage = () => {
                 setVerses(false);
               }}
             >
-              Again
+              New Search
             </button>
           </div>
         )}
