@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./app.css";
+
+// const handleBibleWord = () => {
+//   fetch(
+//     "https://api.biblia.com/v1/bible/search/ASV.js?query=let-there&mode=verse&start=0&limit=20&key=ad71372585262d43eebf20e7393e6757"
+//   )
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+// };
+import FrontPage from "./pages/frontpage/FrontPage";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FrontPage />
     </div>
   );
 }
