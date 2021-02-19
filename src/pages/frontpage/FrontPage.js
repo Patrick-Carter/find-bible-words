@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Carousel from "react-elastic-carousel";
 
-import "./frontpage.css";
+import "./frontpage.scss";
 
 const FrontPage = () => {
   const breakpoints = [
